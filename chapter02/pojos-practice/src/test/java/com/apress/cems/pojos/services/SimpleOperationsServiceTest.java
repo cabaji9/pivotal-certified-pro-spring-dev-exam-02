@@ -30,6 +30,7 @@ package com.apress.cems.pojos.services;
 import com.apress.cems.dao.*;
 import com.apress.cems.util.CaseType;
 import com.apress.cems.util.Rank;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
@@ -46,7 +47,8 @@ import static org.junit.jupiter.api.Assertions.*;
  * @since 1.0
  */
 // comment the @Disabled annotation to run the test
-@Disabled
+//@Disable
+@Slf4j
 public class SimpleOperationsServiceTest extends SimpleServiceTestBase {
     static final Long DETECTIVE_ID = 1L;
     static final String BADGE_NO = "NY112233";

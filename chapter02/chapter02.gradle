@@ -16,6 +16,8 @@ subprojects {
             compile (misc.logback) {
                 exclude group: "javax.activation", module: "activation"
             }
+            compileOnly misc.lombok
+            annotationProcessor  misc.lombok
 
             testCompile testing.api
             testRuntimeOnly testing.platformRunner, testing.engine

@@ -28,15 +28,18 @@ SOFTWARE.
 */
 package com.apress.cems.beans.db;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Iuliana Cosmina
  * @since 1.0
  */
+@Slf4j
 public class SimpleDependantCfgTest {
 
     @Test
@@ -49,5 +52,9 @@ public class SimpleDependantCfgTest {
 
         var simpleBean = simpleDependantCfg.simpleBean();
         assertNotNull(simpleBean);
+
+        var dependantBean = simpleDependantCfg.dependantBean();
+        assertTrue(dependantBean.getSimpleBean().equals(simpleBean));
+
     }
 }

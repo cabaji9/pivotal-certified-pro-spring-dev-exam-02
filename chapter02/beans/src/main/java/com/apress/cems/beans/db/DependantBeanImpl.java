@@ -28,15 +28,19 @@ SOFTWARE.
 package com.apress.cems.beans.db;
 
 import com.apress.cems.beans.ci.SimpleBean;
+import lombok.Getter;
 
 /**
  * @author Iuliana Cosmina
  * @since 1.0
  */
+@Getter
 public class DependantBeanImpl implements DependantBean {
     private SimpleBean simpleBean;
 
     public DependantBeanImpl(SimpleBean simpleBean) {
         this.simpleBean = simpleBean;
     }
+
+
 }

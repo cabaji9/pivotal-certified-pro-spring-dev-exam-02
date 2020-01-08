@@ -37,7 +37,7 @@ subprojects {
                 inputs.property("moduleName", moduleName)
                 doFirst {
                     options.compilerArgs = [
-                            '-proc:none',
+
                             '--module-path', classpath.asPath,
                     ]
                     classpath = files()

@@ -10,16 +10,18 @@ subprojects {
         apply plugin: 'java'
         apply plugin: 'idea'
 
+
         dependencies {
+
             compile project(':chapter00:dao')
             compile misc.lang3, misc.ojdbc, misc.slf4j
             compile (misc.logback) {
                 exclude group: "javax.activation", module: "activation"
             }
-            compileOnly misc.lombok
-            annotationProcessor  misc.lombok
+
 
             testCompile testing.api
+
             testRuntimeOnly testing.platformRunner, testing.engine
         }
 
@@ -42,7 +44,6 @@ subprojects {
                 inputs.property("moduleName", moduleName)
                 doFirst {
                     options.compilerArgs = [
-                            '-proc:none',
                             '--module-path', classpath.asPath,
                     ]
                     classpath = files()

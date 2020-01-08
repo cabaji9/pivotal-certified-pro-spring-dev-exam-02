@@ -27,9 +27,13 @@ SOFTWARE.
 */
 package com.apress.cems.beans.db;
 
+import com.apress.cems.beans.ci.SimpleBean;
+
 /**
  * @author Iuliana Cosmina
  * @since 1.0
  */
 public interface DependantBean {
+
+    SimpleBean getSimpleBean();
 }

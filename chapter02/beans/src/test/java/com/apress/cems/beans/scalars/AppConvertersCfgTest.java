@@ -46,9 +46,13 @@ class AppConvertersCfgTest {
     void testSimpleBeans() {
         var ctx = new AnnotationConfigApplicationContext(AppConvertersCfg.class);
 
-        var pb = ctx.getBean(PersonBean.class);
+        var pb = ctx.getBean("personBean");
         assertNotNull(pb);
         logger.debug(pb.toString());
+
+        var pb2 = ctx.getBean("personBean2");
+        assertNotNull(pb2);
+        logger.debug(pb2.toString());
 
         var mtb = ctx.getBean(MultipleTypesBean.class);
         logger.debug(mtb.toString());

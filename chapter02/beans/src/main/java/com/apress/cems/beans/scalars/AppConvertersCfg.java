@@ -36,6 +36,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ConversionServiceFactoryBean;
 import org.springframework.core.convert.ConversionService;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 /**
@@ -95,5 +96,10 @@ public class AppConvertersCfg {
     @Bean
     Map<String, SimpleBean> simpleBeanMap2(){
         return Map.of("simpleBean", simpleBean());
+    }
+
+    @Bean
+    PersonBean personBean2(){
+        return new PersonBean(LocalDateTime.now(),"Prueba");
     }
 }

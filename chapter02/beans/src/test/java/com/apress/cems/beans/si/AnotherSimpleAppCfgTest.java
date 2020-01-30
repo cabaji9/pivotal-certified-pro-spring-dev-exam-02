@@ -38,7 +38,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author Iuliana Cosmina
  * @since 1.0
  */
-class AnotherSimpleAppCfgTest {
+class XAnotherSimpleAppCfgTest {
 
     @Test
     void testSimpleBeans() {

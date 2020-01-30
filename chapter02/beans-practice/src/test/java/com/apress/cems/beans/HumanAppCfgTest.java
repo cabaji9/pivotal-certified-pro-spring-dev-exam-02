@@ -27,6 +27,7 @@ SOFTWARE.
 */
 package com.apress.cems.beans;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -39,7 +40,8 @@ import static org.junit.jupiter.api.Assertions.*;
  * @since 1.0
  */
 // Comment the @Disabled annotation to run your test
-@Disabled
+//@Disabled
+@Slf4j
 class HumanAppCfgTest {
 
     @Test
@@ -51,6 +53,8 @@ class HumanAppCfgTest {
         assertNotNull(humanBean);
         assertNotNull(humanBean.getItem());
         assertNotNull(humanBean.getItem().getTitle());
+
+        log.info("item {}", humanBean.getItem());
 
         ctx.close();
     }

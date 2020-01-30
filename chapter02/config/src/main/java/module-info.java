@@ -14,6 +14,7 @@ module com.apress.cems.config {
     requires ojdbc7;
     requires java.naming;
     requires java.annotation;
+    requires lombok  ;
 
     requires com.apress.cems.pojos;
 }

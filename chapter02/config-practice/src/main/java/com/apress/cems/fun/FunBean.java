@@ -27,11 +27,13 @@ SOFTWARE.
 */
 package com.apress.cems.fun;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -42,20 +44,49 @@ import javax.annotation.PreDestroy;
  * Bean that is initialized using all three techniques supported in Spring
  */
 // TODO 12. Add initialization and destroy methods to implement all three techniques specified in the book
-public class FunBean /*implements InitializingBean, DisposableBean*/ {
-    private Logger logger = LoggerFactory.getLogger(FunBean.class);
+@Slf4j
+@Component
+public class FunBean implements InitializingBean, DisposableBean {
 
     private DepBean depBean;
 
     public FunBean() {
-        logger.info("Stage 1: Calling the constructor");
+        log.info("Stage 1: Calling the constructor");
     }
 
     @Autowired
     public void setDepBean(DepBean depBean) {
-        logger.info("Stage 2: Calling the setter");
+        log.info("Stage 2: Calling the setter");
         this.depBean = depBean;
     }
 
     // ..
+    @PostConstruct
+    public void init(){
+        log.info("called init");
+    }
+
+    @PreDestroy
+    public void destroyPre(){
+        log.info("destroy");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        log.info("called afterPropertiesSet");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        log.info("called destroy");
+    }
+
+
+    public void initNew(){
+        log.info("called initNew");
+    }
+
+    public void destroyNew(){
+        log.info("called destroyNew");
+    }
 }
